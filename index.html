@@ -4,36 +4,45 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Funciones</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/blood.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
 	</head>
 	<body>
 		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+			<div class="slides"></div>
 		</div>
-
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
 		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
+			const slds = document.querySelector(".slides");
+			const list = [
+			'Funciones', 'TableOfContents1', 'Example1', 'Example2', 'TableOfContents2',
+			'QueEsFuncion', 'TableOfContents3', 'Ejercicio1', 'Ejercicio2', 'Outro'
+			];
+
+			for (let i = 0; i < list.length; i++) {
+				const section = document.createElement('section');
+				section.className = 'fv-background';
+				const attr1 = document.createAttribute('fv-video');
+				attr1.value = ''.concat('media/videos/funciones/1080p60/', list[i], '.mp4');
+				section.setAttributeNode(attr1);
+				const attr2 = document.createAttribute('fv-playback-info');
+				attr2.value = ''.concat('media/videos/funciones/1080p60/', list[i], '.json');
+				section.setAttributeNode(attr2);
+				slds.append(section);
+			}
+		</script>
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/manim/manim.js"></script>
+		<script>
 			Reveal.initialize({
 				hash: true,
-
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				autoPlayMedia: false,
+				plugins: [ RevealManim ]
 			});
 		</script>
 	</body>
